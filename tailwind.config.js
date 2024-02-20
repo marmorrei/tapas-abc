@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        wood: "url('../wood-bg.png')"
+        wood: "url('./wood-bg.png')"
       }
     }
   },
