@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Mitr', sans-serif;
+    background: rgb(205, 228, 223);
+    background: -moz-linear-gradient(
+      90deg,
+      rgba(205, 228, 223, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      90deg,
+      rgba(205, 228, 223, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(205, 228, 223, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cde4df",endColorstr="#ffffff",GradientType=1);
+  }
+}
