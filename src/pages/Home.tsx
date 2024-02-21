@@ -25,7 +25,7 @@ export const Home: FC = () => {
       <Button
         text='REGISTRA TU TAPA'
         onClick={() => {
-          navigate(paths.register)
+          navigate(paths.registerTapa)
         }}
       />
       <Button

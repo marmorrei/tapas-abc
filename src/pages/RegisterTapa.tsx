@@ -7,7 +7,7 @@ export type TTapa = {
   contestant: string | undefined
   description: string | undefined
 }
-export const Register: FC = () => {
+export const RegisterTapa: FC = () => {
   const [tapa, setTapa] = useState<TTapa>({
     name: '',
     contestant: '',
