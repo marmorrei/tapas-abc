@@ -1,11 +1,11 @@
 /* eslint-disable array-callback-return */
 import { useState, type FC, type ChangeEvent } from 'react'
-import { BackButton, Button, Title } from '../components'
-// import { supabase } from '../supabase/supabase'
+import { BackButton, Button, RequirementsList, Title } from '../components'
+import { supabase } from '../supabase/supabase'
 
 export type TDietaryRequirement = {
-  name: string | undefined
-  requirement: string | undefined
+  name: string
+  requirement: string
 }
 export const DietaryRequirements: FC = () => {
   const [dietaryRequirement, setDietaryRequirement] =
@@ -24,27 +24,31 @@ export const DietaryRequirements: FC = () => {
     e: React.SyntheticEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault()
-    // try {
-    //   const { error } = await supabase
-    //     .from('dietary_requirements')
-    //     .insert([
-    //       {
-    //         name: dietaryRequirement.name,
-    //         requirement: dietaryRequirement.requirement
-    //       }
-    //     ])
-    //     .select()
 
-    //   if (error != null) {
-    //     throw new Error(error.message)
-    //   } else {
-    //     alert('Gracias por la info, aparecerá a continuación')
-    //   }
-    // } catch (error) {
-    //   console.log(error)
-    // } finally {
-    //   setDietaryRequirement({ name: '', requirement: '' })
-    // }
+    const name = dietaryRequirement.name
+    const requirement = dietaryRequirement.requirement
+
+    try {
+      const { error } = await supabase
+        .from('dietary_requirements')
+        .insert([
+          {
+            name,
+            requirement
+          }
+        ])
+        .select()
+
+      if (error != null) {
+        throw new Error(error.message)
+      } else {
+        alert('Gracias por la info, aparecerá a continuación')
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setDietaryRequirement({ name: '', requirement: '' })
+    }
   }
 
   return (
@@ -91,7 +95,7 @@ export const DietaryRequirements: FC = () => {
         <h1 className='text-center font-semibold'>
           ¿Qué hay que tener en cuenta?
         </h1>
-        {/* <RequirementsList /> */}
+        <RequirementsList />
       </div>
       <BackButton />
     </>

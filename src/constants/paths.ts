@@ -1,8 +1,9 @@
 export const paths = {
   home: '/',
+  login: '/login',
   comingSoon: '/comingsoon',
   dietaryRequirements: '/dietaryrequirements',
-  register: '/register',
+  registerTapa: '/register-tapa',
   rules: '/rules',
   votes: '/votes'
 }

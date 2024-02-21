@@ -5,6 +5,7 @@ export {
 } from './DietaryRequirements'
 export { ErrorPage } from './ErrorPage'
 export { Home } from './Home'
-export { Register } from './Register'
+export { Login } from './Login'
+export { RegisterTapa } from './RegisterTapa'
 export { Rules } from './Rules'
 export { Votes } from './Votes'
