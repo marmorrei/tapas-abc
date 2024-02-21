@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 import { useState, type FC, type ChangeEvent } from 'react'
-import { BackButton, Button, Title } from '../components'
+import { BackButton, Button, RequirementsList, Title } from '../components'
 import { supabase } from '../supabase/supabase'
 
 export type TDietaryRequirement = {
@@ -95,7 +95,7 @@ export const DietaryRequirements: FC = () => {
         <h1 className='text-center font-semibold'>
           ¿Qué hay que tener en cuenta?
         </h1>
-        {/* <RequirementsList /> */}
+        <RequirementsList />
       </div>
       <BackButton />
     </>

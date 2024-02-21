@@ -1,12 +1,16 @@
 import { supabase } from '../supabase/supabase'
 import { type FC, useState } from 'react'
 import { BackButton, Button, Title } from '../components'
+import { useNavigate } from 'react-router-dom'
+import { paths } from '../constants'
 
 export const Login: FC = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   })
+
+  const navigate = useNavigate()
 
   const resetData = (): void => {
     setFormData({
@@ -46,6 +50,7 @@ export const Login: FC = () => {
       console.error(error)
     } finally {
       resetData()
+      navigate(paths.home)
     }
   }
 
