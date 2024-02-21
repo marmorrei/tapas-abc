@@ -4,8 +4,8 @@ import { BackButton, Button, Title } from '../components'
 import { supabase } from '../supabase/supabase'
 
 export type TDietaryRequirement = {
-  name: string | undefined
-  requirement: string | undefined
+  name: string
+  requirement: string
 }
 export const DietaryRequirements: FC = () => {
   const [dietaryRequirement, setDietaryRequirement] =
@@ -24,13 +24,17 @@ export const DietaryRequirements: FC = () => {
     e: React.SyntheticEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault()
+
+    const name = dietaryRequirement.name
+    const requirement = dietaryRequirement.requirement
+
     try {
       const { error } = await supabase
         .from('dietary_requirements')
         .insert([
           {
-            name: dietaryRequirement.name,
-            requirement: dietaryRequirement.requirement
+            name,
+            requirement
           }
         ])
         .select()
