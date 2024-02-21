@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import { useState, type FC, type ChangeEvent } from 'react'
 import { BackButton, Button, Title } from '../components'
-// import { supabase } from '../supabase/supabase'
+import { supabase } from '../supabase/supabase'
 
 export type TDietaryRequirement = {
   name: string | undefined
@@ -24,27 +24,27 @@ export const DietaryRequirements: FC = () => {
     e: React.SyntheticEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault()
-    // try {
-    //   const { error } = await supabase
-    //     .from('dietary_requirements')
-    //     .insert([
-    //       {
-    //         name: dietaryRequirement.name,
-    //         requirement: dietaryRequirement.requirement
-    //       }
-    //     ])
-    //     .select()
+    try {
+      const { error } = await supabase
+        .from('dietary_requirements')
+        .insert([
+          {
+            name: dietaryRequirement.name,
+            requirement: dietaryRequirement.requirement
+          }
+        ])
+        .select()
 
-    //   if (error != null) {
-    //     throw new Error(error.message)
-    //   } else {
-    //     alert('Gracias por la info, aparecerá a continuación')
-    //   }
-    // } catch (error) {
-    //   console.log(error)
-    // } finally {
-    //   setDietaryRequirement({ name: '', requirement: '' })
-    // }
+      if (error != null) {
+        throw new Error(error.message)
+      } else {
+        alert('Gracias por la info, aparecerá a continuación')
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setDietaryRequirement({ name: '', requirement: '' })
+    }
   }
 
   return (
