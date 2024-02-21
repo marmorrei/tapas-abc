@@ -9,7 +9,7 @@ export type TDietaryRequirement = {
 }
 export const DietaryRequirements: FC = () => {
   const [dietaryRequirement, setDietaryRequirement] =
-    useState<TDietaryRequirement>({ name: undefined, requirement: undefined })
+    useState<TDietaryRequirement>({ name: '', requirement: '' })
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setDietaryRequirement(prevDietaryRequirement => {
@@ -62,7 +62,7 @@ export const DietaryRequirements: FC = () => {
             required
             name='name'
             id='name'
-            value={dietaryRequirement?.name}
+            value={dietaryRequirement.name}
             placeholder='Nombre'
             onChange={e => {
               handleChange(e)
@@ -74,7 +74,7 @@ export const DietaryRequirements: FC = () => {
             required
             name='requirement'
             id='requirement'
-            value={dietaryRequirement?.requirement}
+            value={dietaryRequirement.requirement}
             placeholder='Requerimiento'
             onChange={e => {
               handleChange(e)

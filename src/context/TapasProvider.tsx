@@ -5,11 +5,11 @@ import {
   type FC,
   type ReactNode
 } from 'react'
-import { supabase } from '../supabase/supabase'
+// import { supabase } from '../supabase/supabase'
 
 export type TTapasContext = {
   tapas: any[] | null
-  getTapas: () => Promise<void>
+  // getTapas: () => Promise<void>
 }
 const TapasContext = createContext<TTapasContext | null>(null)
 
@@ -25,15 +25,13 @@ type TTapasProvider = {
 }
 export const TapasProvider: FC<TTapasProvider> = ({ children }) => {
   const [tapas, setTapas] = useState<any[] | null>(null)
-
-  const getTapas = async (): Promise<void> => {
-    const { data } = await supabase.from('tapas').select('*')
-    setTapas(data)
-  }
+  setTapas([])
+  // const getTapas = async (): Promise<void> => {
+  //   const { data } = await supabase.from('tapas').select('*')
+  //   setTapas(data)
+  // }
 
   return (
-    <TapasContext.Provider value={{ tapas, getTapas }}>
-      {children}
-    </TapasContext.Provider>
+    <TapasContext.Provider value={{ tapas }}>{children}</TapasContext.Provider>
   )
 }

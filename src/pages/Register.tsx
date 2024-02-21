@@ -9,9 +9,9 @@ export type TTapa = {
 }
 export const Register: FC = () => {
   const [tapa, setTapa] = useState<TTapa>({
-    name: undefined,
-    contestant: undefined,
-    description: undefined
+    name: '',
+    contestant: '',
+    description: ''
   })
 
   const handleChange = (

@@ -14,7 +14,7 @@ import {
 import { Layout } from './layout'
 import { paths } from './constants'
 import { DietaryRequirementsProvider } from './context/DietaryRequirementsProvider'
-import { TapasProvider } from './context/TapasProvider'
+// import { TapasProvider } from './context/TapasProvider'
 
 const router = createBrowserRouter([
   {
@@ -49,12 +49,12 @@ if (!rootElement) throw new Error('Failed to find the root element')
 const root = ReactDOM.createRoot(rootElement)
 root.render(
   <React.StrictMode>
-    <TapasProvider>
-      <DietaryRequirementsProvider>
-        <Layout>
-          <RouterProvider router={router} />
-        </Layout>
-      </DietaryRequirementsProvider>
-    </TapasProvider>
+    {/* <TapasProvider> */}
+    <DietaryRequirementsProvider>
+      <Layout>
+        <RouterProvider router={router} />
+      </Layout>
+    </DietaryRequirementsProvider>
+    {/* </TapasProvider> */}
   </React.StrictMode>
 )
