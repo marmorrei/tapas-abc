@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Title, Button } from '../components'
+import { Title, Button, TapasCounter } from '../components'
 import { paths } from '../constants'
 
 export const Home: FC = () => {
@@ -9,7 +9,7 @@ export const Home: FC = () => {
   return (
     <>
       <Title text='CONCURSO DE TAPAS' />
-      {/* <TapasCounter /> */}
+      <TapasCounter />
       <Button
         text='NORMAS DEL CONCURSO'
         onClick={() => {

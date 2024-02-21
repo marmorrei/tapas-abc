@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Layout } from './layout'
 import {
   DietaryRequirementsProvider,
-  // TapasProvider,
+  TapasProvider,
   UserProvider
 } from './context'
 import { App } from './App'
@@ -18,13 +18,13 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        {/* <TapasProvider> */}
-        <DietaryRequirementsProvider>
-          <Layout>
-            <App />
-          </Layout>
-        </DietaryRequirementsProvider>
-        {/* </TapasProvider> */}
+        <TapasProvider>
+          <DietaryRequirementsProvider>
+            <Layout>
+              <App />
+            </Layout>
+          </DietaryRequirementsProvider>
+        </TapasProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
