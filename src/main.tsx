@@ -13,7 +13,7 @@ import {
 } from './pages'
 import { Layout } from './layout'
 import { paths } from './constants'
-import { DietaryRequirementsProvider } from './context/DietaryRequirementsProvider'
+// import { DietaryRequirementsProvider } from './context/DietaryRequirementsProvider'
 // import { TapasProvider } from './context/TapasProvider'
 
 const router = createBrowserRouter([
@@ -50,11 +50,11 @@ const root = ReactDOM.createRoot(rootElement)
 root.render(
   <React.StrictMode>
     {/* <TapasProvider> */}
-    <DietaryRequirementsProvider>
-      <Layout>
-        <RouterProvider router={router} />
-      </Layout>
-    </DietaryRequirementsProvider>
+    {/* <DietaryRequirementsProvider> */}
+    <Layout>
+      <RouterProvider router={router} />
+    </Layout>
+    {/* </DietaryRequirementsProvider> */}
     {/* </TapasProvider> */}
   </React.StrictMode>
 )

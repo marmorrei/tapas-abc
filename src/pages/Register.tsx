@@ -25,7 +25,10 @@ export const Register: FC = () => {
     })
   }
 
-  const handleSubmit = async (): Promise<void> => {
+  const handleSubmit = async (
+    e: React.SyntheticEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault()
     try {
       const { error } = await supabase
         .from('tapas')
@@ -40,17 +43,18 @@ export const Register: FC = () => {
 
       if (error != null) {
         throw new Error(error.message)
+      } else {
+        alert(
+          `Tu tapa ha sido registrada con éxito \n${tapa.name?.toUpperCase()}: ${tapa.description?.toLocaleLowerCase()}`
+        )
       }
     } catch (error) {
       console.log(error)
     } finally {
-      alert(
-        `Tu tapa ha sido registrada con éxito \n${tapa.name?.toUpperCase()}: ${tapa.description?.toLocaleLowerCase()}`
-      )
       setTapa({
-        name: undefined,
-        contestant: undefined,
-        description: undefined
+        name: '',
+        contestant: '',
+        description: ''
       })
     }
   }

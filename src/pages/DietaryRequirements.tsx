@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 import { useState, type FC, type ChangeEvent } from 'react'
-import { BackButton, Button, RequirementsList, Title } from '../components'
+import { BackButton, Button, Title } from '../components'
 import { supabase } from '../supabase/supabase'
 
 export type TDietaryRequirement = {
@@ -20,7 +20,10 @@ export const DietaryRequirements: FC = () => {
     })
   }
 
-  const handleSubmit = async (): Promise<void> => {
+  const handleSubmit = async (
+    e: React.SyntheticEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault()
     try {
       const { error } = await supabase
         .from('dietary_requirements')
@@ -34,12 +37,13 @@ export const DietaryRequirements: FC = () => {
 
       if (error != null) {
         throw new Error(error.message)
+      } else {
+        alert('Gracias por la info, aparecerá a continuación')
       }
     } catch (error) {
       console.log(error)
     } finally {
-      alert('Gracias por la info, aparecerá a continuación')
-      setDietaryRequirement({ name: undefined, requirement: undefined })
+      setDietaryRequirement({ name: '', requirement: '' })
     }
   }
 
@@ -87,7 +91,7 @@ export const DietaryRequirements: FC = () => {
         <h1 className='text-center font-semibold'>
           ¿Qué hay que tener en cuenta?
         </h1>
-        <RequirementsList />
+        {/* <RequirementsList /> */}
       </div>
       <BackButton />
     </>
