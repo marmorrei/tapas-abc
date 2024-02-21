@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type FC } from 'react'
 import { BackButton, Button, Title } from '../components'
-import { supabase } from '../supabase/supabase'
+// import { supabase } from '../supabase/supabase'
 
 export type TTapa = {
   name: string | undefined
@@ -29,34 +29,34 @@ export const Register: FC = () => {
     e: React.SyntheticEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault()
-    try {
-      const { error } = await supabase
-        .from('tapas')
-        .insert([
-          {
-            tapa_name: tapa.name,
-            contestant_name: tapa.contestant,
-            tapa_description: tapa.description
-          }
-        ])
-        .select()
+    // try {
+    //   const { error } = await supabase
+    //     .from('tapas')
+    //     .insert([
+    //       {
+    //         tapa_name: tapa.name,
+    //         contestant_name: tapa.contestant,
+    //         tapa_description: tapa.description
+    //       }
+    //     ])
+    //     .select()
 
-      if (error != null) {
-        throw new Error(error.message)
-      } else {
-        alert(
-          `Tu tapa ha sido registrada con éxito \n${tapa.name?.toUpperCase()}: ${tapa.description?.toLocaleLowerCase()}`
-        )
-      }
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setTapa({
-        name: '',
-        contestant: '',
-        description: ''
-      })
-    }
+    //   if (error != null) {
+    //     throw new Error(error.message)
+    //   } else {
+    //     alert(
+    //       `Tu tapa ha sido registrada con éxito \n${tapa.name?.toUpperCase()}: ${tapa.description?.toLocaleLowerCase()}`
+    //     )
+    //   }
+    // } catch (error) {
+    //   console.log(error)
+    // } finally {
+    //   setTapa({
+    //     name: '',
+    //     contestant: '',
+    //     description: ''
+    //   })
+    // }
   }
 
   return (
